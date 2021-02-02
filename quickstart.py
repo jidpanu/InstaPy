@@ -6,22 +6,12 @@ from instapy import smart_run
 insta_username = 'myrentshop'
 insta_password = '0980500873ss'
 
-comments = ['Nice shot! @{}',
-        'I love your profile! @{}',
-        'Your feed is an inspiration :thumbsup:',
-        'Just incredible :open_mouth:',
-        'What camera did you use @{}?',
-        'Love your posts @{}',
-        'Looks awesome @{}',
-        'Getting inspired by you @{}',
-        ':raised_hands: Yes!',
-        'I can feel your passion @{} :muscle:']
 
 # get an InstaPy session!
 # set headless_browser=True to run InstaPy in the background
 session = InstaPy(username=insta_username,
                   password=insta_password,
-                  headless_browser=False)
+                  headless_browser=True)
 
 with smart_run(session):
   """ Activity flow """		
@@ -33,5 +23,3 @@ with smart_run(session):
 
   # Joining Engagement Pods
   session.set_do_comment(enabled=True, percentage=35)
-  session.set_comments(comments)
-  session.join_pods(topic='sports', engagement_mode='no_comments')
